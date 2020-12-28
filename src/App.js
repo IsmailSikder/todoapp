@@ -1,6 +1,6 @@
 
 import './App.css';
-import HomePage from './pages/somepage';
+import HomePage from './pages/homepage';
 import { Switch,Route  } from 'react-router-dom';
 import ToDoList from './pages/todopage';
 import Header from './components/header.component';

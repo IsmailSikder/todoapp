@@ -1,42 +1,45 @@
 import CustomButton from "../components/custom-button.component";
 import FormInput from "../components/form-input.component";
-import {connect,useDispatch} from 'react-redux'
+import {connect} from 'react-redux'
 import addTask from '../redux/todo.action'
-import React, { useState } from 'react'
+import React from 'react'
+class HomePage extends React.Component{
 
-const HomePage = ({addTask})=>{
-  const dispatch = useDispatch()
+  constructor(props){
+    super(props)
+    this.state ={
+      todo :''
+    }
+  }
 
-const [todo, newTodo] = useState();
-
-const handleChange=(event)=>{
-  newTodo(event.target.todo)
+handleChange=(event)=>{
+  const {name, value} = event.target
+  this.setState({[name]:value})
 }
 
-const handleSubmit =()=>dispatch({
-  type:'ADD_TODO',
-  payload: todo
-})
+handleSubmit =(event)=>{
+  const {todo} = this.state
+  event.preventDefault()
+  this.props.addTask({todo})
+}
 
-// const handleSubmit =(event)=>{
-//   event.preventDefault()
-//   newTodo('')
-//   addTask(todo)
-// }
-
-console.log(todo)
+  render(){
+    const {todo} = this.state
     return(
       <div className='home-page'>
       <FormInput
-          name ='text'
+          name ='todo'
           type='text'
           value={todo}
-         onChange={handleChange}
+         onChange={this.handleChange}
       />
-       <CustomButton onClick={handleSubmit}/>
+       <CustomButton onClick={this.handleSubmit}/>
   </div>
   )
-            
+  }
+       
+       
+    
 }
 
 const mapDispatchToProps=(dispatch)=>(
