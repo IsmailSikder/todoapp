@@ -1,9 +1,10 @@
 import {connect} from 'react-redux'
-const ToDoList =({Task})=>(
+const ToDoList =({task})=>(
     <div className='to-do-list'>
+        <p>Your To-Do</p>
        <ul>
        {
-            Task.map(task=>
+            task.map(task=>
                 <li>{task}</li>
             )
         }
@@ -12,8 +13,8 @@ const ToDoList =({Task})=>(
     </div>
 )
 
-const mapStateToProps=({Task})=>({
-    Task
+const mapStateToProps=({task:{task}})=>({
+    task
 })
 
 export default connect(mapStateToProps, null)(ToDoList)

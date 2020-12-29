@@ -12,15 +12,15 @@ class HomePage extends React.Component{
     }
   }
 
-handleChange=(event)=>{
-  const {name, value} = event.target
-  this.setState({[name]:value})
+  handleChange = event => {
+   
+    this.setState({todo: event.target.value})
 }
 
-handleSubmit =(event)=>{
+handleSubmit =()=>{
   const {todo} = this.state
-  event.preventDefault()
-  this.props.addTask({todo})
+  this.props.addTask(todo)
+  this.setState({todo:''})
 }
 
   render(){

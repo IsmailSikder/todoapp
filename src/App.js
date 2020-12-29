@@ -12,7 +12,7 @@ function App() {
       <Header/>
     <Switch>
         <Route exact path='/' component={HomePage}/>
-        <Route exact path='/todolist' component={ToDoList}/>
+        <Route exact path='/TODOS' component={ToDoList}/>
     </Switch>
     </div>
     
