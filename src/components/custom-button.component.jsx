@@ -1,9 +1,9 @@
-const CustomButton=({...props})=>(
+const CustomButton=({children,...props})=>(
     <div className='custom-button'>
         <button 
         {...props}
         >
-            SUBMIT
+            {children}
         </button>
 
     </div>
